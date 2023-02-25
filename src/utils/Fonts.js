@@ -3,7 +3,8 @@ export const InterFont = {
   bold: 'Inter-Bold',
   medium: 'Inter-Medium',
   regular: 'Inter-Regular',
-   semiBold: 'Inter-SemiBold',
+  semiBold: 'Inter-SemiBold',
+   SuezOne:"SuezOne-Regular"
 
 };
 
