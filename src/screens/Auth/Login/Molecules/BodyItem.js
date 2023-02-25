@@ -18,7 +18,6 @@ const BodyItem = () => {
         alignSelf="center"
         fontSize={20}
         color={colors.primary}
-        fontFamily={Montserrat.SemiBold}
       />
       <Spacer height={20} />
 
@@ -26,7 +25,6 @@ const BodyItem = () => {
         placeholder={'User Name'}
         placeholderTextColor={colors.black}
         leftIcon={icons.userName}
-        width={'87%'}
       />
       <Spacer height={15} />
       <CustomTextInput

@@ -5,7 +5,7 @@ import { ScaledSheet, verticalScale, scale, moderateScale } from 'react-native-s
 
 // import { ActivityIndicator } from "react-native-paper";
 import { colors } from '../utils/Colors';
-import { Montserrat } from '../utils/Fonts';
+import { InterFont, Montserrat } from '../utils/Fonts';
 function CustomButton({
   loading,
   title,
@@ -54,7 +54,7 @@ function CustomButton({
               {
                 color: color || colors.white,
                 fontSize: verticalScale(fontSize|| 14),
-                fontFamily: fontFamily || Montserrat.SemiBold
+                fontFamily: fontFamily || InterFont.regular
               },
             ]}
           >
