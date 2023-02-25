@@ -14,7 +14,7 @@ const BodyItem = () => {
         textAlign="center"
         color={colors.white}
 
-        fontFamily={InterFont.bold}/>
+        fontFamily={InterFont.SuezOne}/>
 
         </View>
      
