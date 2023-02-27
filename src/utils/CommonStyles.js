@@ -47,6 +47,11 @@ import { colors } from './Colors';
       justifyContent: 'center',
       alignItems: 'center',
     },
+    main:{
+      flex:1,
+      
+
+    },
 
     IosPadding:{
       flex: 1,paddingTop:Platform.OS=="ios"?verticalScale(40):5,

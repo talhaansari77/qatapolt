@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Platform, Image} from 'react-native';
+import {StyleSheet, Text, View, Platform, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {colors} from '../../../../utils/Colors';
 import CustomText from '../../../../components/CustomText';
@@ -11,7 +11,6 @@ import {icons} from '../../../../assets/icons';
 const AuthDate=[
     {id:1,img:icons.google},
     {id:2,img:icons.facebook},
-    {id:3,img:icons.linkend},
 
 ]
 
@@ -22,6 +21,7 @@ const AuthOption = () => {
         <View style={styles.lineSeprator}></View>
         <CustomText
           label="OR"
+          color="#BDBDBD"
           // fontFamily={Montserrat.SemiBold}
           fontSize={15}
           marginLeft={10}
@@ -30,28 +30,39 @@ const AuthOption = () => {
         <View style={styles.lineSeprator}></View>
       </View>
       <Spacer height={20} />
+      {/* <View style={{alignSelf:"center",width:"100%"}}> */}
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-around',
+          // alignSelf:"center",
+          justifyContent:"space-evenly",
         }}>
             {
                 AuthDate.map(item=>{
                     return(
-                        <View style={styles.authContainer}>
+                      <>
+                        <TouchableOpacity
+                        activeOpacity={0.7}
+                         style={styles.authContainer}>
                         <Image
                           style={{width: scale(18), height: verticalScale(18)}}
                           source={item.img}
                         />
-                      </View>
+                      </TouchableOpacity>
+                      {/* <Spacer width={60}/> */}
+                      </>
+                      
                     
                     )
                 })
             }
        
       </View>
-    </View>
+        
+      </View>
+    
+    // </View>
   );
 };
 
@@ -65,7 +76,7 @@ const styles = StyleSheet.create({
   },
   lineSeprator: {
     width: '40%',
-    backgroundColor: colors.black,
+    backgroundColor:"#BDBDBD",
     height: 1,
   },
   authContainer: {

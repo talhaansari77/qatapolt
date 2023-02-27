@@ -18,6 +18,7 @@ import CustomText from "./CustomText";
 import {colors} from "../utils/Colors"
 import commonStyles from "../utils/CommonStyles";
 import { InterFont } from "../utils/Fonts";
+import { images } from "../assets/images";
 
 const CustomTextInput = ({
   eyeClick,
@@ -29,6 +30,7 @@ const CustomTextInput = ({
   source,
   iconWidth,
   iconHeight,
+  onRightPress,
   rigthIcon,
   ...props
 }) => {
@@ -47,44 +49,29 @@ const CustomTextInput = ({
         borderColor: props.borderColor ,
         paddingLeft: props.paddingLeft,
         backgroundColor:colors.white,
-        shadowColor: Platform.OS=="ios"?"#ced4da":colors.black,
-        shadowRadius: 8,
-        elevation: 5,
-        shadowOpacity: 0.5,
-    
-        shadowOffset: { width: 3, height: 5 },
       },
+      props.inputStyle
     ]}
     >
      
    
         <CustomText
-          label={"umair Name"}
-          color={colors.gray}
-          // fontFamily="regular"
-          
-          fontSize={verticalScale(8)}
-          // marginBottom={verticalScale(10)}
+          label={withLabel}
+          color={colors.inputGray}          
+          fontSize={verticalScale(7)}
         />
-      <View style={{flexDirection:"row",alignItems:"center",width:"100%",marginTop:verticalScale(5)}}>
-
-        
-
-
-
+      <View style={{flexDirection:"row",alignItems:"center",width:"100%",marginTop:verticalScale(5),}}>
         <TextInput
           style={[
             {
-              width: props.inputWidth  || "95%",
+              width: rigthIcon?"90%":"95%",
               height: props.inputHeight || "100%",
               paddingRight: props.paddingRight || 10,
               paddingHorizontal: props.paddingHorizontal,
               fontFamily: props.fontFamily || InterFont.regular,
               color: props.color || colors.black,
-              fontSize: verticalScale(12),
-              // textAlign: props.textAlign || "center",
+              fontSize: verticalScale(10),
               multiline: props.multiline
-              // alignSelf: props.alignItems || "center"
             },
           ]}
           onChangeText={props.onChangeText}
@@ -94,12 +81,14 @@ const CustomTextInput = ({
           autoCapitalize="none"
           multiline={props.multiline}
           placeholder={props.placeholder}
-          placeholderTextColor={props.placeholderTextColor}
+          placeholderTextColor={colors.inputGray}
           secureTextEntry={props.secureTextEntry}
         />
         {
           rigthIcon?(
-            <View style={{
+            <TouchableOpacity 
+            onPress={onRightPress}
+            style={{
 
               width:  iconWidth ||scale(20),
               height:  iconHeight||verticalScale(20),
@@ -109,7 +98,7 @@ const CustomTextInput = ({
            <Image style={commonStyles.img} source={rigthIcon} />
 
 
-            </View>
+            </TouchableOpacity>
 
           ):<></>
         }

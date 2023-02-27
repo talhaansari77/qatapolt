@@ -13,10 +13,10 @@ const RootNavigator = () => {
     <NavigationContainer >
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="AuthStack" component={AuthStack} />
-      <Stack.Screen name="MainStack" component={MainStack} />
+      {/* <Stack.Screen name="MainStack" component={MainStack} /> */}
 
       </Stack.Navigator>
-      <StatusBar barStyle={'light-content'} />
+      {/* <StatusBar barStyle={'light-content'} /> */}
     </NavigationContainer>
   );
 };

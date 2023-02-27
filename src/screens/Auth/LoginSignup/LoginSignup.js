@@ -1,18 +1,22 @@
-import {ImageBackground, StyleSheet, Text, View, Image} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View, Image, Platform} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import commonStyles from '../../../utils/CommonStyles';
 import {images} from '../../../assets/images';
-import {verticalScale} from 'react-native-size-matters';
+import {scale, verticalScale} from 'react-native-size-matters';
 import {Spacer} from '../../../components/Spacer';
 import {styles} from './styles';
 import BodyItem from './molecules/BodyItem';
+import GradientButton from '../../../components/GradientButton';
+import CustomButton from '../../../components/CustomButton';
+import {colors} from '../../../utils/Colors';
 
-const LoginSignup = () => {
+const LoginSignup = ({navigation}) => {
   return (
     <View style={commonStyles.main}>
       <ImageBackground style={commonStyles.img} source={images.background}>
-        <Spacer height={80} />
+      <Spacer height={Platform.OS=="ios"? 80:60} />
+
         <View style={styles.imgContainer}>
           <Image
             resizeMode="center"
@@ -20,8 +24,22 @@ const LoginSignup = () => {
             source={images.appIcon}
           />
         </View>
-        <View style={{height:"25%"}}/>
-        <BodyItem/>
+        <View style={{height: '25%'}} />
+        <BodyItem />
+        <Spacer height={40}/>
+        <View style={{paddingHorizontal:scale(10)}}>
+        <GradientButton
+        onPress={()=>navigation.navigate("Signup")}
+         title="Register" />
+        <Spacer height={20}/>
+
+        <CustomButton 
+        onPress={()=>navigation.navigate("Login")}
+        title="Sign In" backgroundColor={colors.white} />
+
+        </View>
+
+
       </ImageBackground>
     </View>
   );
