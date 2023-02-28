@@ -8,19 +8,18 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import commonStyles from '../../../utils/CommonStyles';
-import {images} from '../../../assets/images';
 import {Spacer} from '../../../components/Spacer';
-import SignupTop from './molecules/SignupTop';
-import {scale, verticalScale} from 'react-native-size-matters';
-import {styles} from './styles';
-import SignupBottom from './molecules/SignupBottom';
+import SignupTop from '../Signup/molecules/SignupTop';
+import {styles} from '../Signup/styles';
 import CustomText from '../../../components/CustomText';
 import {colors} from '../../../utils/Colors';
 import CustomTextInput from '../../../components/CustomTextInput';
-import {icons} from '../../../assets/icons';
+import SignupBottom from '../Signup/molecules/SignupBottom';
 import CustomBottomSheet from '../../../components/CustomBottomSheet';
-
-const Signup = ({navigation}) => {
+import {scale, verticalScale} from 'react-native-size-matters';
+import {icons} from '../../../assets/icons';
+import {images} from '../../../assets/images';
+const ProfileDetail = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -90,56 +89,51 @@ const Signup = ({navigation}) => {
     <>
       <View style={commonStyles.main}>
         <ImageBackground style={commonStyles.img} source={images.background}>
-          <Spacer height={40} />
+          <Spacer height={20} />
           <SignupTop navigation={navigation} />
-          <Spacer height={10} />
+          <Spacer height={40} />
 
-          <View style={styles.bodyView}>
-            <ScrollView 
-            showsVerticalScrollIndicator={false}
-            style={{flex: 1, paddingHorizontal: 20}}>
-              <Spacer height={20} />
-              <CustomText
-                label="Create your account"
-                fontSize={12}
-                textAlign="center"
-                color={colors.black}
-              />
-              <Spacer height={20} />
-              {SignupData.map(item => {
-                return (
-                  <>
-                    <CustomTextInput
-                      inputStyle={{
-                        shadowColor:
-                          Platform.OS == 'ios'
-                            ? colors.inputGray
-                            : colors.black,
-                        shadowRadius: 5,
-                        elevation: 5,
-                        shadowOpacity: 0.5,
+          <View style={{flex: 1}}>
+            <ImageBackground style={commonStyles.img} source={images.rectangle}>
+              <Spacer height={50} />
+              <ScrollView
+                showsVerticalScrollIndicator={false}
+                style={{flex: 1, paddingHorizontal: 20}}>
+                <Spacer height={20} />
+                {SignupData.map(item => {
+                  return (
+                    <>
+                      <CustomTextInput
+                        inputStyle={{
+                          shadowColor:
+                            Platform.OS == 'ios'
+                              ? colors.inputGray
+                              : colors.black,
+                          shadowRadius: 5,
+                          elevation: 5,
+                          shadowOpacity: 0.5,
 
-                        shadowOffset: {width: 1, height: 1},
-                      }}
-                      withLabel={item.withLabel}
-                      value={item.value}
-                      editable={item.editable}
-                      iconWidth={item.iconWidth}
-                      iconHeight={item.iconHeight}
-                      rigthIcon={item.rigthIcon}
-                      onRightPress={item.onRightPress}
-                      secureTextEntry={item.secureTextEntry}
-                      placeholder={item.placeholder}
-                    />
-                    <Spacer height={15} />
-                  </>
-                );
-              })}
-              <Spacer height={5}/>
-              {/* <SignupBody/> */}
-              <SignupBottom navigation={navigation}/>
-
-            </ScrollView>
+                          shadowOffset: {width: 1, height: 1},
+                        }}
+                        withLabel={item.withLabel}
+                        value={item.value}
+                        editable={item.editable}
+                        iconWidth={item.iconWidth}
+                        iconHeight={item.iconHeight}
+                        rigthIcon={item.rigthIcon}
+                        onRightPress={item.onRightPress}
+                        secureTextEntry={item.secureTextEntry}
+                        placeholder={item.placeholder}
+                      />
+                      <Spacer height={15} />
+                    </>
+                  );
+                })}
+                <Spacer height={5} />
+                {/* <SignupBody/> */}
+                <SignupBottom navigation={navigation} />
+              </ScrollView>
+            </ImageBackground>
           </View>
         </ImageBackground>
       </View>
@@ -154,4 +148,4 @@ const Signup = ({navigation}) => {
   );
 };
 
-export default Signup;
+export default ProfileDetail;

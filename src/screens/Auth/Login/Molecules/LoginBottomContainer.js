@@ -4,7 +4,7 @@ import CustomText from '../../../../components/CustomText'
 import { colors } from '../../../../utils/Colors'
 import { Spacer } from '../../../../components/Spacer'
 
-const LoginBottomContainer = () => {
+const LoginBottomContainer = (props) => {
   return (
     <View style={{alignSelf:"center"}}>
            <CustomText
@@ -25,8 +25,8 @@ const LoginBottomContainer = () => {
           alignSelf:"center",
         }}>
         <CustomText
-          onPress={() => {}}
-          label="Create New"
+        onPress={() => props.navigation.navigate('Signup')}
+        label="Create New"
           fontSize={12}
           marginBottom={2}
           fontWeight="500"

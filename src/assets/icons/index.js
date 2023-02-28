@@ -5,6 +5,6 @@ export const icons={
     facebook:require("../icons/facebook.png"),
     linkend:require("../icons/linkend.png"),
     eye:require("../icons/eye.png"),
-    hidden:require("../icons/hidden.png")
-
+    hidden:require("../icons/hidden.png"),
+    dropdown:require("../icons/dropdown.png"),
 }

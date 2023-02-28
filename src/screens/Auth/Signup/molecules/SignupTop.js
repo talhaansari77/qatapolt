@@ -10,25 +10,35 @@ import { Spacer } from '../../../../components/Spacer';
 const SignupTop = (props) => {
   return (
     <View style={{padding:scale(10),}}>
-        <TouchableOpacity 
-        activeOpacity={0.6}
-        onPress={()=>props.navigation.goBack()}
-        >
-
-        <Ionicons  name='ios-chevron-back-outline' size={moderateScale(30)} color={colors.white}/>
-        </TouchableOpacity>
-
-        <View style={{width:"70%",alignSelf:"center",alignItems:"center"}}>
+      <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
+        {/* <View style={{width:"33.3%",}}/>
+      <View style={{width:"33%",}}>
             <Spacer height={10}/>
         <CustomText
-        label="Create own luck with Qatapolt"
-        fontSize={22}
+        label="Profile"
+        fontSize={20}
+        color={colors.white}
+        fontFamily={InterFont.bold}
+      />
+              </View>
+      <View style={{width:"33.3%",backgroundColor:"red"}}>
+      <CustomText
+        label="SKip"
+        fontSize={13}
         textAlign="center"
         color={colors.white}
         fontFamily={InterFont.bold}
       />
+        </View> */}
 
-        </View>
+
+
+
+
+      </View>
+       
+
+       
   
     </View>
   );

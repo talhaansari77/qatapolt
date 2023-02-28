@@ -13,7 +13,7 @@ import LoginBodyItem from './Molecules/LoginBodyItem';
 import AuthOption from './Molecules/AuthOption';
 import LoginBottomContainer from './Molecules/LoginBottomContainer';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   return (
     <View style={commonStyles.main}>
       <ImageBackground style={commonStyles.img} source={images.background1}>
@@ -34,7 +34,7 @@ const LoginScreen = () => {
           <AuthOption />
           <Spacer height={30} />
 
-          <LoginBottomContainer/>
+          <LoginBottomContainer navigation={navigation}/>
         </View>
       </ImageBackground>
     </View>

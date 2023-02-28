@@ -62,6 +62,7 @@ const CustomTextInput = ({
         />
       <View style={{flexDirection:"row",alignItems:"center",width:"100%",marginTop:verticalScale(5),}}>
         <TextInput
+        editable={props.editable}
           style={[
             {
               width: rigthIcon?"90%":"95%",
@@ -70,7 +71,7 @@ const CustomTextInput = ({
               paddingHorizontal: props.paddingHorizontal,
               fontFamily: props.fontFamily || InterFont.regular,
               color: props.color || colors.black,
-              fontSize: verticalScale(10),
+              fontSize: verticalScale(11),
               multiline: props.multiline
             },
           ]}
@@ -86,7 +87,9 @@ const CustomTextInput = ({
         />
         {
           rigthIcon?(
+            
             <TouchableOpacity 
+            activeOpacity={0.6}
             onPress={onRightPress}
             style={{
 
@@ -95,7 +98,7 @@ const CustomTextInput = ({
               marginLeft:verticalScale(10),
 
             }} >
-           <Image style={commonStyles.img} source={rigthIcon} />
+           <Image style={commonStyles.img}  resizeMode="contain" source={rigthIcon} />
 
 
             </TouchableOpacity>
