@@ -17,6 +17,8 @@ import {
 import CustomText from "./CustomText";
 import {colors} from "../utils/Colors"
 import commonStyles from "../utils/CommonStyles";
+import { InterFont } from "../utils/Fonts";
+import { images } from "../assets/images";
 
 const CustomTextInput = ({
   eyeClick,
@@ -28,79 +30,49 @@ const CustomTextInput = ({
   source,
   iconWidth,
   iconHeight,
+  onRightPress,
+  rigthIcon,
   ...props
 }) => {
   return (
-    <View>
-      {withLabel ? (
+    <TouchableOpacity
+    onPress={props.onPress}
+    disabled={!props.onPress}
+    style={[
+      {
+        width: props.width || "100%",
+        height: props.height || verticalScale(50),
+        borderRadius: props.borderRadius || moderateScale(12),
+        backgroundColor: props.backgroundColor,
+        padding:scale(10),
+        marginTop: props.marginTop || verticalScale(0),
+        borderColor: props.borderColor ,
+        paddingLeft: props.paddingLeft,
+        backgroundColor:colors.white,
+      },
+      props.inputStyle
+    ]}
+    >
+     
+   
         <CustomText
           label={withLabel}
-          color={colors.gray}
-          fontFamily="regular"
-          fontSize={verticalScale(10)}
-          // marginBottom={verticalScale(10)}
+          color={colors.inputGray}          
+          fontSize={verticalScale(7)}
         />
-      ) : null}
-      <TouchableOpacity
-        onPress={props.onPress}
-        disabled={!props.onPress}
-        style={[
-          {
-            width: props.width || "100%",
-            height: props.height || verticalScale(50),
-            borderRadius: props.borderRadius || moderateScale(30),
-            backgroundColor: props.backgroundColor,
-            marginTop: props.marginTop || verticalScale(0),
-            flexDirection: "row",
-            borderColor: props.borderColor ,
-            alignItems: "center",
-            paddingLeft: props.paddingLeft,
-
-            backgroundColor:colors.white,
-
-            shadowColor: Platform.OS=="ios"?"#ced4da":colors.black,
-            shadowRadius: 8,
-            elevation: 5,
-            alignItems: "center",
-            shadowOpacity: 0.5,
-        
-            shadowOffset: { width: 3, height: 5 },
-          },
-        ]}
-      >
-        {
-          leftIcon?(
-            <View style={{
-
-              width:  iconWidth ||scale(20),
-              height:  iconHeight||verticalScale(20),
-              marginLeft:verticalScale(10),
-
-            }} >
-           <Image style={commonStyles.img} source={leftIcon} />
-
-
-            </View>
-
-          ):<></>
-        }
-
-
-
+      <View style={{flexDirection:"row",alignItems:"center",width:"100%",marginTop:verticalScale(5),}}>
         <TextInput
+        editable={props.editable}
           style={[
             {
-              width: props.inputWidth  || "95%",
+              width: rigthIcon?"90%":"95%",
               height: props.inputHeight || "100%",
-              marginLeft: props.inputLeftMargin || 10,
               paddingRight: props.paddingRight || 10,
               paddingHorizontal: props.paddingHorizontal,
-              fontFamily: props.fontFamily || "Montserrat-regular",
-              color: props.color || colors.white,
-              fontSize: verticalScale(13),
-              // textAlign: props.textAlign || "center",
+              fontFamily: props.fontFamily || InterFont.regular,
+              color: props.color || colors.black,
+              fontSize: verticalScale(11),
               multiline: props.multiline
-              // alignSelf: props.alignItems || "center"
             },
           ]}
           onChangeText={props.onChangeText}
@@ -110,23 +82,35 @@ const CustomTextInput = ({
           autoCapitalize="none"
           multiline={props.multiline}
           placeholder={props.placeholder}
-          placeholderTextColor={props.placeholderTextColor}
+          placeholderTextColor={colors.inputGray}
           secureTextEntry={props.secureTextEntry}
         />
+        {
+          rigthIcon?(
+            
+            <TouchableOpacity 
+            activeOpacity={0.6}
+            onPress={onRightPress}
+            style={{
+
+              width:  iconWidth ||scale(20),
+              height:  iconHeight||verticalScale(20),
+              marginLeft:verticalScale(10),
+
+            }} >
+           <Image style={commonStyles.img}  resizeMode="contain" source={rigthIcon} />
+
+
+            </TouchableOpacity>
+
+          ):<></>
+        }
+              </View>
+
        
 
-      </TouchableOpacity>
-      {error ? (
-        <CustomText
-          label="* "
-          children={error}
-          fontSize={verticalScale(8)}
-          color={colors.red}
-          fontWeight={"600"}
-          marginTop={verticalScale(5)}
-        />
-      ) : null}
-    </View>
+     
+    </TouchableOpacity>
   );
 };
 export default CustomTextInput;

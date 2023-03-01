@@ -3,6 +3,7 @@ import React from 'react';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 // import colors from '../../Utils/colors';
 import { colors } from '../utils/Colors';
+import { InterFont } from '../utils/Fonts';
 function CustomText(props) {
   return (
     <TouchableOpacity
@@ -31,16 +32,19 @@ function CustomText(props) {
             fontWeight: props.fontWeight,
             marginHorizontal:props.marginHorizontal,
             fontStyle: props.fontStyle,
-            fontFamily: props.fontFamily,
+            fontFamily: props.fontFamily || InterFont.regular,
             numberOfLines: props.numberOfLines,
             ellipsizeMode: props.ellipsizeMode,
             marginVertical: verticalScale(props.marginVertical || 0),
             textAlign: props.textAlign,
+            lineHeight:props.lineHeight,
+            textDecorationStyle:props.textDecorationStyle,
+            
+            
 
             textDecorationLine: props.textDecorationLine,
             textDecorationColor: props.textDecorationColor,
             // text-decoration-color: "red";
-            textDecorationLine: props.textDecorationLine,
           },
           props.textStyle,
         ]}
