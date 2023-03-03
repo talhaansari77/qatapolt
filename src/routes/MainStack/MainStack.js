@@ -1,5 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from '../../screens/Main/HomeScreen/HomeScreen';
+import HomeStack from '../HomeStack/HomeStack';
+
 const MainStack = () => {
   const Stack = createStackNavigator();
   return (
@@ -7,7 +8,7 @@ const MainStack = () => {
       screenOptions={{headerShown: false}}
       // initialRouteName={'Signout'}
       >
-      <Stack.Screen name="homeScreen" component={HomeScreen} />
+      <Stack.Screen name="HomeStack" component={HomeStack} />
     </Stack.Navigator>
   );
 };

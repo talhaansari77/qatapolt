@@ -4,8 +4,8 @@ import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import AuthStack from './AuthStack/AuthStack';
 import MainStack from './MainStack/MainStack';
 import {StatusBar} from 'react-native';
-import { useSelector } from 'react-redux';
-import { colors } from '../utils/Colors';
+import {useSelector} from 'react-redux';
+import {colors} from '../utils/Colors';
 
 const RootNavigator = () => {
   const {settings} = useSelector(state => state.authReducer);
@@ -20,15 +20,22 @@ const RootNavigator = () => {
     console.log(settings);
   }, [settings]);
 
-
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {/* <Stack.Screen name="AuthStack" component={AuthStack} colorModes={colorModes} /> */}
-        <Stack.Screen name="MainStack" component={MainStack} colorModes={colorModes} />
+        <Stack.Screen
+          name="MainStack"
+          component={MainStack}
+          colorModes={colorModes}
+        />
       </Stack.Navigator>
-      <StatusBar barStyle="light-content" translucent={true} backgroundColor="transparent" />
+      <StatusBar
+        barStyle="dark-content"
+        translucent={true}
+        backgroundColor="transparent"
+      />
     </NavigationContainer>
   );
 };

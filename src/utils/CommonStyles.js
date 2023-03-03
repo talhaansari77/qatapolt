@@ -28,8 +28,10 @@ import { colors } from './Colors';
     padding: {
       paddingHorizontal: 20,
     },
-  
-    justify: {
+    row: {
+      flexDirection: 'row',
+    },
+    rowJustify: {
       justifyContent: 'space-between',
       alignItems: 'center',
       flexDirection: 'row',
