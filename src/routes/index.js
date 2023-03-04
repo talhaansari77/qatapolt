@@ -23,8 +23,12 @@ const RootNavigator = () => {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="AuthStack" component={AuthStack} colorModes={colorModes} /> */}
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={'MainStack'}>
+        <Stack.Screen
+          name="AuthStack"
+          component={AuthStack}
+          colorModes={colorModes}
+        />
         <Stack.Screen
           name="MainStack"
           component={MainStack}

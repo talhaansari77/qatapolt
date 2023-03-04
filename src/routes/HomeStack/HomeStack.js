@@ -3,7 +3,7 @@ import HomeScreen from '../../screens/Main/ArenaScreen/ArenaScreen';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {colors} from '../../utils/Colors';
 import {icons} from '../../assets/icons';
-import {Image, Text} from 'react-native';
+import {Image, Platform, Text} from 'react-native';
 import {verticalScale} from 'react-native-size-matters';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CustomText from '../../components/CustomText';
@@ -26,7 +26,8 @@ const HomeStack = () => {
           height: verticalScale(65),
           paddingTop: 5,
           backgroundColor: colors.white,
-          display:route.name === 'NewPost'?"none":"flex"
+          display:route.name === 'NewPost'?"none":"flex",
+          paddingBottom:Platform.OS == "ios" ? 20 : 12
         },
         headerShown: false,
         tabBarLabel: ({focused, size, color}) => {
