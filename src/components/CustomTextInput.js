@@ -62,6 +62,7 @@ const CustomTextInput = ({
         />
       <View style={{flexDirection:"row",alignItems:"center",width:"100%",marginTop:verticalScale(5),}}>
         <TextInput
+        onPressIn={props.onInputPress}
         editable={props.editable}
           style={[
             {
