@@ -5,6 +5,7 @@ import {
   Text,
   View,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import commonStyles from '../../../utils/CommonStyles';
@@ -37,7 +38,7 @@ const ProfileDetail = ({navigation}) => {
     skill2: '',
     skill3: '',
     bio: '',
-    stats:''
+    stats: '',
   });
 
   console.log('SugnupIndex', signupValues.accountType);
@@ -325,20 +326,17 @@ const ProfileDetail = ({navigation}) => {
       setSignupValues({...signupValues, accountType: item});
       setModalVisible(false);
 
-
       return;
     }
     if (signupId == 2) {
       setSignupValues({...signupValues, country: item});
       setModalVisible(false);
 
-
       return;
     }
     if (signupId == 3) {
       setSignupValues({...signupValues, city: item});
       setModalVisible(false);
-
 
       return;
     }
@@ -347,7 +345,7 @@ const ProfileDetail = ({navigation}) => {
       setModalVisible(false);
       return;
     }
-    if (signupId == 5 || signupId==10) {
+    if (signupId == 5 || signupId == 10) {
       setSignupValues({...signupValues, bio: item});
       setModalVisible(false);
       return;
@@ -375,23 +373,29 @@ const ProfileDetail = ({navigation}) => {
     }
     setModalVisible(false);
   };
+
+  const windowHeight = Dimensions.get("screen").height;
+
   return (
     <>
       <View style={commonStyles.main}>
         <ImageBackground style={commonStyles.img} source={images.background}>
           <Spacer height={Platform.OS == 'ios' ? 20 : 0} />
           <ProfileTop navigation={navigation} />
-          <Spacer height={20} />
           <ProfilePhoto />
+          <Spacer height={ windowHeight / 13} />
 
           {/* <Spacer height={20} /> */}
 
-          <View style={{flex: 1}}>
-            <ImageBackground style={commonStyles.img} source={images.rectangle}>
-              <Spacer height={50} />
+          <View style={{flex: 1,}}>
+            <ImageBackground
+              style={{width: '100%', height: '100%'}}
+              resizeMode={"stretch"}
+              source={images.rectangle}>
+              <Spacer height={60} />
               <ScrollView
                 showsVerticalScrollIndicator={false}
-                style={{flex: 1, paddingHorizontal: 20}}>
+                style={{flex: 1, paddingHorizontal: 20,  }}>
                 <Spacer height={20} />
                 {signupValues.accountType == 'Athlete' ||
                 !signupValues.accountType ||
