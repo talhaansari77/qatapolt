@@ -6,6 +6,7 @@ import {colors} from '../utils/Colors';
 import {Spacer} from './Spacer';
 import Octicons from 'react-native-vector-icons/Octicons';
 import CustomText from './CustomText';
+
 import {ScrollView} from 'react-native-gesture-handler';
 
 const CustomBottomSheet = props => {
@@ -15,7 +16,7 @@ const CustomBottomSheet = props => {
 
   useEffect(() => {
     setListData(props.list);
-  }, []);
+  }, [props]);
 
   const onSearchFilter = txt => {
     setSearch(txt);
@@ -41,7 +42,7 @@ const CustomBottomSheet = props => {
         flexDirection={'column'}
         backgroundColor={'white'}
         alignSelf="center"
-        maxHeight={'80%'}
+        maxHeight={'60%'}
         paddingHorizontal={scale(15)}
         minHeight={'60%'}
         width={'97%'}
@@ -53,8 +54,7 @@ const CustomBottomSheet = props => {
         <View style={styles.topLine}></View>
         <Spacer height={10} />
         <Spacer height={10} />
-        <View
-          style={styles.searchBody}>
+        <View style={styles.searchBody}>
           <Octicons
             name="search"
             color={colors.black}
@@ -100,13 +100,13 @@ export default CustomBottomSheet;
 
 const styles = StyleSheet.create({
   topLine: {
-    width: scale( 80),
+    width: scale(80),
     height: 5,
-    backgroundColor: "#dee2e6",
+    backgroundColor: '#dee2e6',
     alignSelf: 'center',
     borderRadius: 10,
   },
-  searchBody:{
+  searchBody: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
@@ -114,5 +114,5 @@ const styles = StyleSheet.create({
     height: verticalScale(30),
     borderRadius: 10,
     paddingHorizontal: 10,
-  }
+  },
 });
