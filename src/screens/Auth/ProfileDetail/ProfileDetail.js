@@ -22,6 +22,8 @@ import {icons} from '../../../assets/icons';
 import {images} from '../../../assets/images';
 import ProfileTop from './molecules/ProfileTop';
 import ProfilePhoto from '../../../components/ProfilePhoto';
+import AgeRange from './molecules/AgeRange';
+import GanderConatiner from './molecules/GanderConatiner';
 const ProfileDetail = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -43,19 +45,6 @@ const ProfileDetail = ({navigation}) => {
 
   console.log('SugnupIndex', signupValues.accountType);
   const SignupData = [
-    {
-      id: 1,
-      withLabel: 'Change Account Type',
-      placeholder: 'Select Type',
-      iconHeight: verticalScale(11),
-      iconWidth: scale(11),
-      value: signupValues.accountType,
-      editable: false,
-      rigthIcon: icons.dropdown,
-      onRightPress: () => {
-        setModalVisible(true);
-      },
-    },
     {
       id: 2,
       withLabel: 'Country',
@@ -169,19 +158,6 @@ const ProfileDetail = ({navigation}) => {
     },
   ];
   const SignupData2 = [
-    {
-      id: 1,
-      withLabel: 'Change Account Type',
-      placeholder: 'Select Type',
-      iconHeight: verticalScale(11),
-      iconWidth: scale(11),
-      value: signupValues.accountType,
-      editable: false,
-      rigthIcon: icons.dropdown,
-      onRightPress: () => {
-        setModalVisible(true);
-      },
-    },
     {
       id: 2,
       withLabel: 'Country',
@@ -374,7 +350,7 @@ const ProfileDetail = ({navigation}) => {
     setModalVisible(false);
   };
 
-  const windowHeight = Dimensions.get("screen").height;
+  const windowHeight = Dimensions.get('screen').height;
 
   return (
     <>
@@ -383,20 +359,58 @@ const ProfileDetail = ({navigation}) => {
           <Spacer height={Platform.OS == 'ios' ? 20 : 0} />
           <ProfileTop navigation={navigation} />
           <ProfilePhoto />
-          <Spacer height={ windowHeight / 13} />
+          {/* <Spacer height={ windowHeight / 13} /> */}
+          <View style={{height: '13%'}} />
 
-          {/* <Spacer height={20} /> */}
+          {/* <Spacer height={40} /> */}
 
-          <View style={{flex: 1,}}>
+          <View style={{flex: 1}}>
             <ImageBackground
               style={{width: '100%', height: '100%'}}
-              resizeMode={"stretch"}
+              resizeMode={'stretch'}
               source={images.rectangle}>
               <Spacer height={60} />
               <ScrollView
                 showsVerticalScrollIndicator={false}
-                style={{flex: 1, paddingHorizontal: 20,  }}>
+                style={{flex: 1, paddingHorizontal: 20}}>
                 <Spacer height={20} />
+                {/* <AgeRange/> */}
+                <CustomTextInput
+                  inputStyle={{
+                    shadowColor:
+                      Platform.OS == 'ios' ? colors.inputGray : colors.black,
+                    shadowRadius: 5,
+                    elevation: 5,
+                    shadowOpacity: 0.5,
+
+                    shadowOffset: {width: 1, height: 1},
+                  }}
+                  withLabel={'Change Account Type'}
+                  value={signupValues.accountType}
+                  editable={false}
+                  iconWidth={scale(11)}
+                  iconHeight={verticalScale(11)}
+                  rigthIcon={icons.dropdown}
+                  onRightPress={() => {
+                    setSignupId(1);
+                    setModalVisible(true);
+                  }}
+                  placeholder={'Select Type'}
+                />
+                {signupValues.accountType == 'Athlete' ||
+                !signupValues.accountType ||
+                signupValues.accountType == 'Esports' ? (
+                  <View>
+                    <Spacer height={15} />
+                    <AgeRange />
+                    <Spacer height={15} />
+
+                    <GanderConatiner />
+                  </View>
+                ) : null}
+
+                <Spacer height={15} />
+
                 {signupValues.accountType == 'Athlete' ||
                 !signupValues.accountType ||
                 signupValues.accountType == 'Esports' ? (

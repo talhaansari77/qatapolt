@@ -7,4 +7,6 @@ export const icons={
     eye:require("../icons/eye.png"),
     hidden:require("../icons/hidden.png"),
     dropdown:require("../icons/dropdown.png"),
+    person:require("../icons/person.png"),
+
 }

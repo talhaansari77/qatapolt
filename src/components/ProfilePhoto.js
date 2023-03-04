@@ -1,46 +1,53 @@
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {colors} from '../utils/Colors';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import { Spacer } from './Spacer';
+import {Spacer} from './Spacer';
+import {icons} from '../assets/icons';
 
 const ProfilePhoto = () => {
-  const height = Dimensions.get("screen").height;
+  const height = Dimensions.get('screen').height;
   return (
     <View>
-    <View
-      style={{
-        width: scale(110),
-        height: scale(110),
-        borderRadius: 100,
-        borderColor: colors.yellow,
-        borderWidth: 2,
-        alignSelf: 'center',
-        position:"absolute",
-        // marginTop: height/ 7.7
-      }}>
       <View
         style={{
-          width: scale(32),
-          height: scale(32),
-          borderRadius: 30,
-          backgroundColor: colors.white,
+          width: scale(110),
+          height: scale(110),
+          borderRadius: 100,
+          borderColor: colors.yellow,
+          borderWidth: 2,
+          backgroundColor: '#faedcd',
+          alignSelf: 'center',
           position: 'absolute',
-          alignSelf: 'flex-end',
-          marginTop: verticalScale(10),
-          right: -10,
           alignItems: 'center',
-          justifyContent: 'center',
-          position:"absolute",
+          // marginTop: height/ 7.7
         }}>
-        <SimpleLineIcons
-          name="camera"
-          color={colors.black}
-          size={moderateScale(20)}
+        <Image
+          source={icons.person}
+          style={{width: '90%', height: '90%', alignSelf: 'center'}}
         />
+        <View
+          style={{
+            width: scale(30),
+            height: scale(30),
+            borderRadius: 30,
+            backgroundColor: colors.white,
+            position: 'absolute',
+            alignSelf: 'flex-end',
+            marginTop: verticalScale(5),
+            right: -10,
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'absolute',
+          }}>
+          <SimpleLineIcons
+            name="camera"
+            color={colors.black}
+            size={moderateScale(19)}
+          />
+        </View>
       </View>
-    </View>
     </View>
   );
 };
