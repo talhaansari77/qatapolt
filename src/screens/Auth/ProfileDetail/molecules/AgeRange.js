@@ -36,9 +36,10 @@ const AgeRange = props => {
         shadowOffset: {width: 1, height: 1},
       }}>
       <CustomText
-        label={'Gender'}
-        color={colors.inputGray}
-        fontSize={verticalScale(7)}
+        label={'Age'}
+        color={colors.black}
+        fontWeight="500"
+        fontSize={verticalScale(10)}
       />
     </View>
   );

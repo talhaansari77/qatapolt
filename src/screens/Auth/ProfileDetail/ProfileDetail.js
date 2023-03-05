@@ -24,6 +24,7 @@ import ProfileTop from './molecules/ProfileTop';
 import ProfilePhoto from '../../../components/ProfilePhoto';
 import AgeRange from './molecules/AgeRange';
 import GanderConatiner from './molecules/GanderConatiner';
+import GradientButton from '../../../components/GradientButton';
 const ProfileDetail = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -492,7 +493,12 @@ const ProfileDetail = ({navigation}) => {
                 )}
 
                 <Spacer height={5} />
-                <SignupBottom navigation={navigation} />
+                {/* CustomDrawer */}
+                <GradientButton
+        onPress={() => navigation.navigate('MainStack')}
+        title="Register"
+      />
+                {/* <SignupBottom navigation={navigation} /> */}
               </ScrollView>
             </ImageBackground>
           </View>
