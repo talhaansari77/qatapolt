@@ -32,7 +32,7 @@ const RootNavigator = () => {
         />
       </Stack.Navigator>
       <StatusBar
-        barStyle="dark-content"
+        barStyle="light-content"
         translucent={true}
         backgroundColor="transparent"
       />

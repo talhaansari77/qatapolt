@@ -77,7 +77,7 @@ const WatchListScreen = () => {
       </PH10>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={0}
+        showsHorizontalScrollIndicator={false}
         style={{width: '90%'}}>
         <Spacer width={15} />
         {[1, 2, 3, 4].map(() => (
@@ -123,7 +123,9 @@ const WatchListScreen = () => {
       <Header />
       <Spacer height={10} />
 
-      <ScrollView showsVerticalScrollIndicator={0}>
+      <ScrollView
+       showsVerticalScrollIndicator={false}
+       >
         <PH20>
           <CustomText
             label={'8 Lists'}

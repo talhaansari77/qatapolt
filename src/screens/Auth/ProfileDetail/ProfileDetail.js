@@ -415,7 +415,7 @@ const ProfileDetail = ({navigation}) => {
                 {signupValues.accountType == 'Athlete' ||
                 !signupValues.accountType ||
                 signupValues.accountType == 'Esports' ? (
-                  <View>
+                  <View  >
                     {SignupData.map((item, index) => {
                       return (
                         <>
@@ -431,6 +431,7 @@ const ProfileDetail = ({navigation}) => {
 
                               shadowOffset: {width: 1, height: 1},
                             }}
+                            inputMarginTop={Platform.OS == "ios" ? 5 : -7}
                             withLabel={item.withLabel}
                             value={item.value}
                             editable={item.editable}
@@ -498,6 +499,8 @@ const ProfileDetail = ({navigation}) => {
         onPress={() => navigation.navigate('MainStack')}
         title="Register"
       />
+                      <Spacer height={20} />
+
                 {/* <SignupBottom navigation={navigation} /> */}
               </ScrollView>
             </ImageBackground>

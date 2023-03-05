@@ -108,7 +108,7 @@ const Signup = ({navigation}) => {
               <Spacer height={20} />
               {SignupData.map(item => {
                 return (
-                  <>
+                  <View style={{ paddingHorizontal: Platform.OS == 'ios' ? 0 : 5}} >
                     <CustomTextInput
                       inputStyle={{
                         shadowColor:
@@ -118,9 +118,10 @@ const Signup = ({navigation}) => {
                         shadowRadius: 5,
                         elevation: 5,
                         shadowOpacity: 0.5,
-
+                        // inputMarginTop:-20,
                         shadowOffset: {width: 1, height: 1},
                       }}
+                      inputMarginTop={Platform.OS == "ios" ? 5 : -7}
                       withLabel={item.withLabel}
                       value={item.value}
                       editable={item.editable}
@@ -130,9 +131,10 @@ const Signup = ({navigation}) => {
                       onRightPress={item.onRightPress}
                       secureTextEntry={item.secureTextEntry}
                       placeholder={item.placeholder}
+                      // width={"99%"}
                     />
                     <Spacer height={15} />
-                  </>
+                  </View>
                 );
               })}
               <Spacer height={5}/>
