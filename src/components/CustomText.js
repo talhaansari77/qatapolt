@@ -40,7 +40,6 @@ function CustomText(props) {
             lineHeight:props.lineHeight,
             textDecorationStyle:props.textDecorationStyle,
             
-            
 
             textDecorationLine: props.textDecorationLine,
             textDecorationColor: props.textDecorationColor,

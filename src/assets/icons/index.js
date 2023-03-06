@@ -40,4 +40,8 @@ export const icons={
 
 
 
+    flame:require("./flame.png"),
+    trophy:require("./trophy.png"),
+    
+ 
 }
