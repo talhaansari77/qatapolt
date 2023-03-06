@@ -33,5 +33,8 @@ export const icons={
     plusVector:require("./plusVector.png"),
     trashVector:require("./trashVector.png"),
     drawer:require("./drawer.png"),
-
+    flame:require("./flame.png"),
+    trophy:require("./trophy.png"),
+    
+ 
 }
