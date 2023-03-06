@@ -24,8 +24,8 @@ const ProfilePhoto = (props) => {
           // marginTop: height/ 7.7
         }}>
         <Image
-          source={icons.person}
-          style={{width: '90%', height: '90%', alignSelf: 'center'}}
+          source={props.image?icons.profile:  icons.person}
+          style={{width: props.image?"100%":'90%', height: props.image?"100%":  '90%', alignSelf: 'center'}}
         />
         {
           props.addPhoto &&(

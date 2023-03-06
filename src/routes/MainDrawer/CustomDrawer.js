@@ -1,12 +1,15 @@
 import {View, Text, ImageBackground, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import { images } from '../../assets/images';
+import {images} from '../../assets/images';
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import { verticalScale } from 'react-native-size-matters';
+import {scale, verticalScale} from 'react-native-size-matters';
 import ProfilePhoto from '../../components/ProfilePhoto';
+import CustomText from '../../components/CustomText';
+import {Spacer} from '../../components/Spacer';
+import { InterFont } from '../../utils/Fonts';
 
 const CustomDrawer = ({...props}) => {
   return (
@@ -14,10 +17,29 @@ const CustomDrawer = ({...props}) => {
       <DrawerContentScrollView
         {...props}
         // contentContainerStyle={{backgroundColor: '#FD703B'}}
-        >
-        <ImageBackground  source={images.background} style={{padding: 20,height:verticalScale(150),alignItems:"center"}}>
-
-          <ProfilePhoto/>
+      >
+        <ImageBackground
+          source={images.background}
+          style={{
+            padding: 20,
+            height: verticalScale(150),
+            alignItems: 'center',
+          }}>
+          <Spacer height={10} />
+          <ProfilePhoto  image width={scale(90)} height={scale(90)} />
+          <Text
+            style={{
+              top: '75%',
+              // left: -15,
+              fontSize: verticalScale(11),
+              fontWeight: '700',
+              fontFamily:InterFont.regular,
+              alignSelf: 'center',
+              color: '#f3f3f3',
+            }}>
+            {'umairabbas719@gmail.com'}
+          </Text>
+          {/* <CustomText label="umairabbas719@gmail.com"/> */}
           {/* <View style={{padding: 30}}>
             <Image
               source={images.appIcon}

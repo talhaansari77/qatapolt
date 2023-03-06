@@ -33,5 +33,11 @@ export const icons={
     plusVector:require("./plusVector.png"),
     trashVector:require("./trashVector.png"),
     drawer:require("./drawer.png"),
+    score:require("./score.png"),
+    news:require("./news.png"),
+    football:require("./football.png"),
+
+
+
 
 }

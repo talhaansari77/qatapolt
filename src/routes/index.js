@@ -6,6 +6,9 @@ import MainStack from './MainStack/MainStack';
 import {StatusBar} from 'react-native';
 import {useSelector} from 'react-redux';
 import {colors} from '../utils/Colors';
+import CustomDrawer from './MainDrawer/CustomDrawer';
+import MainDrawer from './MainDrawer/MainDrawer';
+import HomeStack from './HomeStack/HomeStack';
 
 const RootNavigator = () => {
   const {settings} = useSelector(state => state.authReducer);
@@ -27,8 +30,8 @@ const RootNavigator = () => {
         <Stack.Screen name="AuthStack" component={AuthStack} colorModes={colorModes} />
         <Stack.Screen
           name="MainStack"
-          component={MainStack}
-          colorModes={colorModes}
+          component={MainDrawer}
+          // colorModes={colorModes}
         />
       </Stack.Navigator>
       <StatusBar
