@@ -36,6 +36,12 @@ export const icons={
     score:require("./score.png"),
     news:require("./news.png"),
     football:require("./football.png"),
+    corner:require("./corner.png"),
+    corner1:require("./corner1.png"),
+    send:require("./send.png"),
+
+
+
 
 
 

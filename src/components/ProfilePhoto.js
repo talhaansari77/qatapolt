@@ -19,7 +19,7 @@ const ProfilePhoto = (props) => {
           borderWidth: 2,
           backgroundColor: '#faedcd',
           alignSelf: 'center',
-          position: 'absolute',
+          // position: 'absolute',
           alignItems: 'center',
           // marginTop: height/ 7.7
         }}>

@@ -1,4 +1,4 @@
-import {Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Platform, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Spacer} from '../../../components/Spacer';
 import {colors} from '../../../utils/Colors';
@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import AddUser from '../../../components/AddUser';
 
-const ChatScreen = ({navigation}) => {
+const GroupChat = () => {
   const chatList = [
     {
       id: 1,
@@ -41,34 +41,7 @@ const ChatScreen = ({navigation}) => {
       seen: true,
     },
   ];
-  const AddChat = () => (
-    // <View style={{height:60,alignItems:"center",justifyContent:"center"}}>
-   
-       <LinearGradient 
-       colors={['#9F703C', '#C1925A', '#E3B77A']} style={{position:"absolute",bottom:0,right:scale(30),alignSelf:"flex-end",backgroundColor:colors.primary,height:50,width:50,borderRadius:100,alignItems:"center",justifyContent:"center",
-       marginBottom:5,
-        shadowColor:
-        Platform.OS == 'ios'
-          ? colors.inputGray
-          : colors.black,
-      shadowRadius: 5,
-      elevation: 5,
-      shadowOpacity: 1,
 
-      shadowOffset: {width: 1, height: 4},
-        }}>
-          <FontAwesome5 name='user-alt' color={colors.white} size={moderateScale(24)}/>
-          {/* <CustomText
-            label={'Chat'}
-            fontSize={22}
-            fontFamily={'inter-semibold'}
-          /> */}
-          {/* <Image source={icons.add} containerStyle={{height: 27, width: 27}} /> */}
-        </LinearGradient>
-
-    // </View>
-       
-  );
   const ChatListItem = ({
     name,
     lastMsg,
@@ -77,16 +50,28 @@ const ChatScreen = ({navigation}) => {
     deliveryTime,
     seen,
   }) => (
-    <TouchableOpacity
-    activeOpacity={0.6}
-    onPress={()=> navigation.navigate("ChatDetail")}
-    >
+    <View>
       <ListItem bottomDivider>
         <Avatar rounded source={icons.profile} size={55} />
         <ListItem.Content>
           <ListItem.Title style={{fontWeight: 'bold'}}>{name}</ListItem.Title>
           <Spacer height={4} />
           <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
+            {/* {seen ? (
+              <>
+                <Image
+                  source={icons.search}
+                  containerStyle={styles.subtitleIcon}
+                />
+                <Spacer width={5} />
+                <CustomText
+                label={missedCall}
+                color={colors.deepRed}
+              />
+              </>
+            ) : (
+              <></>
+            )} */}
             {missedCall ? (
               <>
                 <Image
@@ -137,7 +122,7 @@ const ChatScreen = ({navigation}) => {
           />
         </View>
       </ListItem>
-    </TouchableOpacity>
+    </View>
   );
   return (
     <>
@@ -162,14 +147,14 @@ const ChatScreen = ({navigation}) => {
         )}
       </ScrollView>
     </View>
-    <AddUser icon="user-alt"/>
+    <AddUser icon="user-friends"/>
     {/* <AddChat/> */}
     </>
   
   );
 };
 
-export default ChatScreen;
+export default GroupChat;
 
 const styles = StyleSheet.create({
   container: {

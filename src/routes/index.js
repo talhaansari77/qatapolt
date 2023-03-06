@@ -9,6 +9,7 @@ import {colors} from '../utils/Colors';
 import CustomDrawer from './MainDrawer/CustomDrawer';
 import MainDrawer from './MainDrawer/MainDrawer';
 import HomeStack from './HomeStack/HomeStack';
+import ChatDetail from '../screens/Main/ChatScreen/ChatDetail/ChatDetail';
 
 const RootNavigator = () => {
   const {settings} = useSelector(state => state.authReducer);
@@ -35,8 +36,10 @@ const RootNavigator = () => {
         <Stack.Screen
           name="MainStack"
           component={MainDrawer}
-          // colorModes={colorModes}
+          colorModes={colorModes}
         />
+              <Stack.Screen name="ChatDetail" component={ChatDetail} />
+
       </Stack.Navigator>
       <StatusBar
         barStyle="light-content"

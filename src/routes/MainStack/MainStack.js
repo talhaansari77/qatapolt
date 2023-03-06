@@ -1,4 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
+import ChatDetail from '../../screens/Main/ChatScreen/ChatDetail/ChatDetail';
 import QatalPoltNews from '../../screens/Main/QatalPoltNews/QatalPoltNews';
 import HomeStack from '../HomeStack/HomeStack';
 
@@ -11,6 +12,7 @@ const MainStack = () => {
       >
       <Stack.Screen name="HomeStack" component={HomeStack} />
       <Stack.Screen name="QatalPoltNews" component={QatalPoltNews} />
+
     </Stack.Navigator>
   ); 
 };
