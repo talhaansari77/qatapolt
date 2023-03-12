@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Spacer} from '../../../components/Spacer';
 import {colors} from '../../../utils/Colors';
@@ -6,8 +6,12 @@ import {icons} from '../../../assets/icons';
 import {Avatar, Badge, Image, ListItem} from 'react-native-elements';
 import CustomText from '../../../components/CustomText';
 import commonStyles, {PH10, PH20} from '../../../utils/CommonStyles';
+import { moderateScale, scale } from 'react-native-size-matters';
+import LinearGradient from 'react-native-linear-gradient';
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
+import AddUser from '../../../components/AddUser';
 
-const ChatScreen = () => {
+const ChatScreen = ({navigation}) => {
   const chatList = [
     {
       id: 1,
@@ -37,19 +41,33 @@ const ChatScreen = () => {
       seen: true,
     },
   ];
-  const Header = () => (
-    <View>
-      <PH20>
-        <View style={commonStyles.rowJustify}>
-          <CustomText
+  const AddChat = () => (
+    // <View style={{height:60,alignItems:"center",justifyContent:"center"}}>
+   
+       <LinearGradient 
+       colors={['#9F703C', '#C1925A', '#E3B77A']} style={{position:"absolute",bottom:0,right:scale(30),alignSelf:"flex-end",backgroundColor:colors.primary,height:50,width:50,borderRadius:100,alignItems:"center",justifyContent:"center",
+       marginBottom:5,
+        shadowColor:
+        Platform.OS == 'ios'
+          ? colors.inputGray
+          : colors.black,
+      shadowRadius: 5,
+      elevation: 5,
+      shadowOpacity: 1,
+
+      shadowOffset: {width: 1, height: 4},
+        }}>
+          <FontAwesome5 name='user-alt' color={colors.white} size={moderateScale(24)}/>
+          {/* <CustomText
             label={'Chat'}
             fontSize={22}
             fontFamily={'inter-semibold'}
-          />
-          <Image source={icons.add} containerStyle={{height: 27, width: 27}} />
-        </View>
-      </PH20>
-    </View>
+          /> */}
+          {/* <Image source={icons.add} containerStyle={{height: 27, width: 27}} /> */}
+        </LinearGradient>
+
+    // </View>
+       
   );
   const ChatListItem = ({
     name,
@@ -59,28 +77,16 @@ const ChatScreen = () => {
     deliveryTime,
     seen,
   }) => (
-    <View>
+    <TouchableOpacity
+    activeOpacity={0.6}
+    onPress={()=> navigation.navigate("ChatDetail")}
+    >
       <ListItem bottomDivider>
         <Avatar rounded source={icons.profile} size={55} />
         <ListItem.Content>
           <ListItem.Title style={{fontWeight: 'bold'}}>{name}</ListItem.Title>
           <Spacer height={4} />
           <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
-            {/* {seen ? (
-              <>
-                <Image
-                  source={icons.search}
-                  containerStyle={styles.subtitleIcon}
-                />
-                <Spacer width={5} />
-                <CustomText
-                label={missedCall}
-                color={colors.deepRed}
-              />
-              </>
-            ) : (
-              <></>
-            )} */}
             {missedCall ? (
               <>
                 <Image
@@ -131,12 +137,13 @@ const ChatScreen = () => {
           />
         </View>
       </ListItem>
-    </View>
+    </TouchableOpacity>
   );
   return (
-    <View style={styles.container}>
-      <Spacer height={40} />
-      <Header />
+    <>
+      <View style={styles.container}>
+      {/* <Spacer height={40} /> */}
+      {/* <Header /> */}
       <Spacer height={10} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {chatList.map(
@@ -155,6 +162,10 @@ const ChatScreen = () => {
         )}
       </ScrollView>
     </View>
+    <AddUser icon="user-alt"/>
+    {/* <AddChat/> */}
+    </>
+  
   );
 };
 

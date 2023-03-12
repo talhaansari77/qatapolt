@@ -6,6 +6,10 @@ import MainStack from './MainStack/MainStack';
 import {StatusBar} from 'react-native';
 import {useSelector} from 'react-redux';
 import {colors} from '../utils/Colors';
+import CustomDrawer from './MainDrawer/CustomDrawer';
+import MainDrawer from './MainDrawer/MainDrawer';
+import HomeStack from './HomeStack/HomeStack';
+import ChatDetail from '../screens/Main/ChatScreen/ChatDetail/ChatDetail';
 
 const RootNavigator = () => {
   const {settings} = useSelector(state => state.authReducer);
@@ -23,16 +27,22 @@ const RootNavigator = () => {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="AuthStack" component={AuthStack} colorModes={colorModes} /> */}
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={"MainStack"} >
         <Stack.Screen
-          name="MainStack"
-          component={MainStack}
+          name="AuthStack"
+          component={AuthStack}
           colorModes={colorModes}
         />
+        <Stack.Screen
+          name="MainStack"
+          component={MainDrawer}
+          colorModes={colorModes}
+        />
+              <Stack.Screen name="ChatDetail" component={ChatDetail} />
+
       </Stack.Navigator>
       <StatusBar
-        barStyle="dark-content"
+        barStyle="light-content"
         translucent={true}
         backgroundColor="transparent"
       />

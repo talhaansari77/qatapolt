@@ -1,4 +1,6 @@
 export const icons={
+    person:require("../icons/person.png"),
+
     userName:require("./user.png"),
     card:require("./card.png"),
     google:require("./google.png"),
@@ -30,4 +32,22 @@ export const icons={
     messageRead:require("./messageRead.png"),
     plusVector:require("./plusVector.png"),
     trashVector:require("./trashVector.png"),
+    drawer:require("./drawer.png"),
+    score:require("./score.png"),
+    news:require("./news.png"),
+    football:require("./football.png"),
+    corner:require("./corner.png"),
+    corner1:require("./corner1.png"),
+    send:require("./send.png"),
+
+
+
+
+
+
+
+    flame:require("./flame.png"),
+    trophy:require("./trophy.png"),
+    
+ 
 }

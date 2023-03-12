@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
@@ -15,11 +16,26 @@ import TopTabs from '../../../components/TopTabs';
 import commonStyles, {PH10, PH20} from '../../../utils/CommonStyles';
 import {images} from '../../../assets/images';
 
-const ArenaScreen = () => {
+const ArenaScreen = ({navigation}) => {
   const Header = () => (
     <View style={styles.header}>
       {/* <CustomText label={''}/> */}
-      <Image source={icons.logoText} style={{height: 27, width: 145}} />
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity
+        onPress={()=>navigation.openDrawer()}
+          style={{
+            width: 40,
+            height: 40,
+            backgroundColor: colors.superLightGray,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 100,
+            marginRight: 10,
+          }}>
+          <Image source={icons.drawer} style={{height: 27, width: 27}} />
+        </TouchableOpacity>
+        <Image source={icons.logoText} style={{height: 27, width: 145}} />
+      </View>
 
       <View style={styles.row}>
         <Image source={icons.search} style={{height: 27, width: 27}} />
@@ -36,7 +52,7 @@ const ArenaScreen = () => {
           <ListItem.Title style={{fontWeight: 'bold'}}>
             {'Rodney Marks'}
           </ListItem.Title>
-          <Spacer height={3}/>
+          <Spacer height={3} />
           <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
             {'30 Min . 10:30 AM'}
           </ListItem.Subtitle>
@@ -108,7 +124,7 @@ const ArenaScreen = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         // stickyHeaderIndices={[0]}
-        >
+      >
         <View>
           <Spacer height={5} />
           <TopTabs />

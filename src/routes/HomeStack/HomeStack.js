@@ -3,7 +3,7 @@ import HomeScreen from '../../screens/Main/ArenaScreen/ArenaScreen';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {colors} from '../../utils/Colors';
 import {icons} from '../../assets/icons';
-import {Image, Text} from 'react-native';
+import {Image, Platform, Text} from 'react-native';
 import {verticalScale} from 'react-native-size-matters';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CustomText from '../../components/CustomText';
@@ -12,6 +12,8 @@ import ChatScreen from '../../screens/Main/ChatScreen/ChatScreen';
 import PostScreen from '../../screens/Main/PostScreen/PostScreen';
 import WatchListScreen from '../../screens/Main/WatchListScreen/WatchListScreen';
 import ArenaScreen from '../../screens/Main/ArenaScreen/ArenaScreen';
+import TopNav from '../TopNav/TopNav';
+import HomeChat from '../../screens/Main/HomeChat/HomeChat';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +28,8 @@ const HomeStack = () => {
           height: verticalScale(65),
           paddingTop: 5,
           backgroundColor: colors.white,
-          display:route.name === 'NewPost'?"none":"flex"
+          display:route.name === 'NewPost'?"none":"flex",
+          paddingBottom:Platform.OS == "ios" ? 20 : 12
         },
         headerShown: false,
         tabBarLabel: ({focused, size, color}) => {
@@ -34,7 +37,7 @@ const HomeStack = () => {
           if (route.name === 'Arena') {
             label = 'Arena';
             color = focused ? colors.black : colors.lightGray;
-          } else if (route.name === 'Chat') {
+          } else if (route.name === 'HomeChat') {
             label = 'Chat';
             color = focused ? colors.black : colors.lightGray;
           } else if (route.name === 'NewPost') {
@@ -56,7 +59,7 @@ const HomeStack = () => {
             iconName = focused ?icons.stadiumActive:icons.stadium;
             // size = focused ? 35 : 30;
             color = focused ? colors.green : colors.lightGray;
-          } else if (route.name === 'Chat') {
+          } else if (route.name === 'HomeChat') {
             iconName = focused ?icons.chatActive:icons.chat;
             // size = focused ? 35 : 30;
             color = focused ? colors.green : colors.lightGray;
@@ -124,7 +127,7 @@ const HomeStack = () => {
       initialRouteName={"NewPost"}
     >
       <Tab.Screen name="Arena" component={ArenaScreen} />
-      <Tab.Screen name="Chat" component={ChatScreen} />
+      <Tab.Screen name="HomeChat" component={HomeChat} />
       <Tab.Screen name="NewPost" component={PostScreen} />
       <Tab.Screen name="WatchList" component={WatchListScreen} />
       <Tab.Screen name="Profile" component={HomeScreen} />

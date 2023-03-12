@@ -12,7 +12,9 @@ export const colors = {
     black: "#0D1D34",
     black1: "#0D1D3499",
     green:"#68A19B",
-    red: 'red'
+    red: 'red',
+    darkBlue:"#11024a",
+    lightGreen:"#39bcd2",
   };
   
   
